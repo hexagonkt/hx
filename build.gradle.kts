@@ -14,7 +14,7 @@ javafx {
 }
 
 application {
-    mainClassName = "com.hexagonkt.tikitoken.TikiTokenKt"
+    mainClassName = "com.hexagonkt.sidekick.SidekickKt"
 }
 
 dependencies {

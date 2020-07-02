@@ -1,4 +1,4 @@
-package com.hexagonkt.hx.codemirror
+package com.hexagonkt.sidekick.codemirror
 
 import com.hexagonkt.helpers.logger
 import kotlinx.html.*

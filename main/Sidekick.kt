@@ -1,9 +1,9 @@
-package com.hexagonkt.hx
+package com.hexagonkt.sidekick
 
 import com.hexagonkt.helpers.Resource
 import com.hexagonkt.helpers.logger
-import com.hexagonkt.hx.ace.AceView
-import com.hexagonkt.hx.codemirror.CodeMirrorView
+import com.hexagonkt.sidekick.ace.AceView
+import com.hexagonkt.sidekick.codemirror.CodeMirrorView
 import javafx.application.Platform.exit
 import javafx.application.Platform.runLater
 import javafx.event.Event
@@ -25,7 +25,7 @@ import kotlin.system.exitProcess
 const val appName = "ace demo"
 const val appImage = "img/tray.png"
 
-internal class HxApp : App() {
+internal class SidekickApp : App() {
 
 //    override val primaryView = AceView::class
     override val primaryView = CodeMirrorView::class
@@ -91,6 +91,6 @@ internal class HxApp : App() {
 
 fun main() {
     logger.info { "Starting $appName..." }
-    launch<HxApp>()
+    launch<SidekickApp>()
     logger.info { "$appName started" }
 }

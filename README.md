@@ -22,7 +22,7 @@ copied to the template.
 ## Distribution
 
 ```java
-module com.hexagonkt.tikitoken {
+module com.hexagonkt.sidekick {
     requires java.desktop;
     requires javafx.controls;
     requires javafx.web;

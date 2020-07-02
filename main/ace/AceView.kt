@@ -1,4 +1,4 @@
-package com.hexagonkt.hx.ace
+package com.hexagonkt.sidekick.ace
 
 import javafx.geometry.Pos.BASELINE_LEFT
 import kotlinx.html.*
