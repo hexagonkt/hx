@@ -45,3 +45,5 @@ jlink {
     }
 }
 ```
+
+* TODO Explain tests logging (with --info|warn... in the command line)
