@@ -1,13 +1,12 @@
 
 plugins {
-    kotlin("jvm") version "1.3.72"
+    kotlin("jvm") version "1.4.0"
     id("org.openjfx.javafxplugin") version "0.0.8"
     id("application")
 }
 
 apply(from = "${properties["gradleScripts"]}/kotlin.gradle")
 apply(from = "${properties["gradleScripts"]}/lean.gradle")
-apply(from = "${properties["gradleScripts"]}/application.gradle")
 
 javafx {
     modules = listOf("javafx.controls", "javafx.web")

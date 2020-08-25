@@ -6,7 +6,7 @@
 
 @file:CompilerOpts("-jvm-target 1.8")
 @file:MavenRepository("jcenter", "https://jcenter.bintray.com")
-@file:DependsOn("com.hexagonkt:http_server_jetty:1.2.2")
+@file:DependsOn("com.hexagonkt:http_server_jetty:1.3.0")
 
 import com.hexagonkt.http.server.Server
 import com.hexagonkt.http.server.ServerPort
