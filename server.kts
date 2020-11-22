@@ -1,22 +1,21 @@
 #!/usr/bin/env kscript
 
-/*
- * Due to a Kscript bug, this example runs only over Java 8
- */
+@file:CompilerOpts("-jvm-target 11")
+@file:DependsOn("com.hexagonkt:http_server_jetty:1.3.2")
+@file:DependsOn("ch.qos.logback:logback-classic:1.2.3")
 
-@file:CompilerOpts("-jvm-target 1.8")
-@file:MavenRepository("jcenter", "https://jcenter.bintray.com")
-@file:DependsOn("com.hexagonkt:http_server_jetty:1.3.0")
-
-import com.hexagonkt.http.server.Server
-import com.hexagonkt.http.server.ServerPort
+import com.hexagonkt.injection.*
+import com.hexagonkt.http.server.*
 import com.hexagonkt.http.server.jetty.JettyServletAdapter
-import com.hexagonkt.injection.InjectionManager
 
-InjectionManager.bindObject<ServerPort>(JettyServletAdapter())
+InjectionManager.bind<ServerPort>(JettyServletAdapter())
 
-val server: Server = Server {
+println(java.io.File(".").absolutePath)
+
+serve {
+    get("/dir/*", java.io.File("hexagon_service"))
     get("/hello/{name}") { ok("Hello, ${pathParameters["name"]}!", "text/plain") }
 }
 
-server.start()
+println(java.io.File("hexagon_service").absolutePath)
+println(java.io.File("hexagon_service").exists())
