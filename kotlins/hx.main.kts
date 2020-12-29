@@ -1,4 +1,11 @@
-#!/usr/bin/env -S kotlinc -script
+#!/usr/bin/env kotlins
+
+/*
+ * To run Kotlin scripts you have to create the `kotlins` launcher with the following commands:
+ *
+ * echo 'kotlinc -cp $KOTLIN_HOME/lib/kotlin-main-kts.jar -script $@' >/usr/local/bin/kotlins
+ * chmod +x /usr/local/bin/kotlins
+ */
 
 // Sources: gh repos, zip files, directories
 // Shortcuts (transform into URLs): ghuser/repo, mvnCoordinates, directory
@@ -12,7 +19,6 @@ val bytes = java.net.URL("https://github.com/hexagonkt/hexagon/archive/master.zi
 java.io.File("build/master.zip").writeBytes(bytes)
 
 println("Hello")
-
 
 /*
 

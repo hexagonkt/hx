@@ -1,12 +1,20 @@
-#!/usr/bin/env kscript
+#!/usr/bin/env kotlins
 
-@file:CompilerOpts("-jvm-target 11")
-@file:DependsOn("com.hexagonkt:http_server_jetty:1.3.2")
-@file:DependsOn("ch.qos.logback:logback-classic:1.2.3")
+/*
+ * To run Kotlin scripts you have to create the `kotlins` launcher with the following commands:
+ *
+ * echo 'kotlinc -cp $KOTLIN_HOME/lib/kotlin-main-kts.jar -script $@' >/usr/local/bin/kotlins
+ * chmod +x /usr/local/bin/kotlins
+ */
+
+@file:CompilerOptions("-jvm-target", "11")
+@file:DependsOn("com.hexagonkt:http_server_jetty:1.3.4")
 
 import com.hexagonkt.injection.*
 import com.hexagonkt.http.server.*
 import com.hexagonkt.http.server.jetty.JettyServletAdapter
+
+println(java.io.File(".").absolutePath)
 
 InjectionManager.bind<ServerPort>(JettyServletAdapter())
 
