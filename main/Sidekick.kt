@@ -1,8 +1,6 @@
 package com.hexagonkt.sidekick
 
-import com.hexagonkt.helpers.Resource
 import com.hexagonkt.helpers.logger
-import com.hexagonkt.sidekick.ace.AceView
 import com.hexagonkt.sidekick.codemirror.CodeMirrorView
 import javafx.application.Platform.exit
 import javafx.application.Platform.runLater
@@ -20,10 +18,11 @@ import java.awt.SystemTray
 import java.awt.SystemTray.getSystemTray
 import java.awt.Toolkit.getDefaultToolkit
 import java.awt.TrayIcon
+import java.net.URL
 import kotlin.system.exitProcess
 
 const val appName = "ace demo"
-const val appImage = "img/tray.png"
+const val appImage = "classpath:img/tray.png"
 
 internal class SidekickApp : App() {
 
@@ -47,7 +46,7 @@ internal class SidekickApp : App() {
     private fun initTray (primaryStage: Stage) {
         if (!SystemTray.isSupported()) return
 
-        val image = getDefaultToolkit().getImage(Resource(appImage).url())
+        val image = getDefaultToolkit().getImage(URL(appImage))
 
         val popupMenu = PopupMenu().apply {
             add(
