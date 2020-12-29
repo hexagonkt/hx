@@ -1,7 +1,7 @@
 
 plugins {
-    kotlin("jvm") version "1.4.0"
-    id("org.openjfx.javafxplugin") version "0.0.8"
+    kotlin("jvm") version "1.4.21"
+    id("org.openjfx.javafxplugin") version "0.0.9"
     id("application")
 }
 
@@ -22,6 +22,4 @@ dependencies {
     implementation("com.hexagonkt:http_client_ahc:${properties["hexagonVersion"]}")
     implementation("no.tornado:tornadofx:${properties["tornadofxVersion"]}")
     implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:${properties["kotlinxHtmlVersion"]}")
-    implementation("org.slf4j:jcl-over-slf4j:${properties["slf4jVersion"]}")
-    implementation("org.slf4j:jul-to-slf4j:${properties["slf4jVersion"]}")
 }
