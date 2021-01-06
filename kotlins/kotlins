@@ -1,0 +1,1 @@
+kotlinc -cp $KOTLIN_HOME/lib/kotlin-main-kts.jar -script $@
