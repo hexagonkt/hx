@@ -8,18 +8,24 @@ plugins {
 apply(from = "${properties["gradleScripts"]}/kotlin.gradle")
 apply(from = "${properties["gradleScripts"]}/lean.gradle")
 
-javafx {
+extensions.configure<org.openjfx.gradle.JavaFXOptions> {
     modules = listOf("javafx.controls", "javafx.web")
 }
 
-application {
-    mainClassName = "com.hexagonkt.sidekick.SidekickKt"
+extensions.configure<JavaApplication> {
+    mainClass.set("com.hexagonkt.sidekick.SidekickKt")
 }
 
 dependencies {
-    implementation("com.hexagonkt:hexagon_core:${properties["hexagonVersion"]}")
-    implementation("com.hexagonkt:http_server_jetty:${properties["hexagonVersion"]}")
-    implementation("com.hexagonkt:http_client_ahc:${properties["hexagonVersion"]}")
-    implementation("no.tornado:tornadofx:${properties["tornadofxVersion"]}")
-    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:${properties["kotlinxHtmlVersion"]}")
+    val hexagonVersion = properties["hexagonVersion"]
+    val flatlafVersion = properties["flatlafVersion"]
+    val tornadofxVersion = properties["tornadofxVersion"]
+    val kotlinxHtmlVersion = properties["kotlinxHtmlVersion"]
+
+    "implementation"("com.hexagonkt:hexagon_core:$hexagonVersion")
+    "implementation"("com.hexagonkt:http_server_jetty:$hexagonVersion")
+    "implementation"("com.hexagonkt:http_client_ahc:$hexagonVersion")
+    "implementation"("com.formdev:flatlaf:$flatlafVersion")
+    "implementation"("no.tornado:tornadofx:$tornadofxVersion")
+    "implementation"("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
 }
