@@ -1,27 +1,61 @@
 package com.hexagonkt.sidekick.swing
 
 import com.formdev.flatlaf.FlatDarculaLaf
+import com.hexagonkt.sidekick.swing.helpers.FontIcon
 import java.awt.*
 import java.awt.BorderLayout.*
 import java.awt.SystemTray.getSystemTray
 import java.awt.Toolkit.getDefaultToolkit
 import java.awt.datatransfer.StringSelection
 import javax.swing.*
-import javax.swing.JLabel.CENTER
 import javax.swing.SwingUtilities.invokeLater
 import javax.swing.border.EmptyBorder
 import kotlin.system.exitProcess
 
 internal class Gui {
 
-    private val frmNavigation: JFrame by lazy {
+    private fun jFrame(layout: LayoutManager? = null, block: JFrame.() -> Unit): JFrame =
         JFrame().apply {
-            layout = BorderLayout()
-            add(JLabel("Date / Time").apply { horizontalAlignment = SwingConstants.CENTER }, CENTER)
-            add(JLabel("<html>▲<br/>Applications</html>").apply { horizontalAlignment = SwingConstants.CENTER; horizontalTextPosition = CENTER }, NORTH)
-            add(JLabel("▶<br/>Files").apply { horizontalAlignment = SwingConstants.CENTER }, EAST)
-            add(JLabel("▼<br/>Windows").apply { horizontalAlignment = SwingConstants.CENTER }, SOUTH)
-            add(JLabel("◀").apply { horizontalAlignment = SwingConstants.CENTER;  }, WEST)
+            if (layout != null)
+                this.layout = layout
+            block()
+        }
+
+    private fun Container.jLabel(constraints: Any? = null, block: JLabel.() -> Unit): JLabel =
+        JLabel().apply(block).apply { this@jLabel.add(this, constraints) }
+
+    private fun Container.jButton(constraints: Any? = null, block: JButton.() -> Unit): JButton =
+        JButton().apply(block).apply { this@jButton.add(this, constraints) }
+
+    private fun JFrame.directionButton(
+        constraints: String,
+        text: String,
+        horizontalTextPosition: Int,
+        verticalTextPosition: Int,
+        icon: Char,
+    ): JButton =
+        jButton(constraints) {
+            this.text = text
+            this.horizontalAlignment = SwingConstants.CENTER
+            this.horizontalTextPosition = horizontalTextPosition
+            this.verticalTextPosition = verticalTextPosition
+            this.isFocusable = false
+            this.icon = FontIcon("/icofont.ttf", Color.GRAY, icon, 32)
+        }
+
+    private val frmNavigation: JFrame by lazy {
+        jFrame(BorderLayout()) {
+
+            jLabel(CENTER) {
+                text = "Date / Time"
+                horizontalAlignment = SwingConstants.CENTER
+            }
+
+            directionButton(NORTH, "Applications", SwingConstants.CENTER, SwingConstants.BOTTOM, '\uEABD')
+            directionButton(EAST, "Files", SwingConstants.CENTER, SwingConstants.BOTTOM, '\uEABC')
+            directionButton(SOUTH, "Windows", SwingConstants.CENTER, SwingConstants.TOP, '\uEABA')
+            directionButton(WEST, "Actions", SwingConstants.CENTER, SwingConstants.BOTTOM, '\uEABB')
+
             isUndecorated = true
             pack()
             setLocationRelativeTo(null)

@@ -1,5 +1,6 @@
 package com.hexagonkt.sidekick.swing.helpers
 
+import com.hexagonkt.helpers.fail
 import java.awt.*
 import java.awt.font.LineMetrics
 import java.awt.image.BufferedImage
@@ -14,7 +15,7 @@ class FontIcon(
     private val aSideLength: Int
 ) : Icon {
 
-    private val fontStream = javaClass.getResourceAsStream(aFontPath)
+    private val fontStream = javaClass.getResourceAsStream(aFontPath) ?: fail
     private val mFont: Font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(aSideLength.toFloat())
     private val mColor: Color = aColor
     private val mChar: Char = aChar
@@ -67,8 +68,8 @@ class FontIcon(
         val bl = mFont.getBaselineFor(mChar)
         val w: Int = gfx.getFontMetrics(mFont).stringWidth(String(chars))
         val x = (iconHeight - w) / 2
-        val y = iconHeight - lm.descent as Int - bl - 1 // The last '- 1' is to 'center'
-        gfx.drawChars(chars, 0, 1, x, y)
+        val y = iconHeight - lm.descent - bl - 1 // The last '- 1' is to 'center'
+        gfx.drawChars(chars, 0, 1, x, y.toInt())
     }
 
     override fun paintIcon(aC: Component, aG: Graphics, aX: Int, aY: Int) {

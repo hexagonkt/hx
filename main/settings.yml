@@ -1,0 +1,33 @@
+
+applications:
+  favorites:
+    - Software Store
+    - System Settings
+    - Web Browser
+    - Terminal
+    - Text Editor
+    - Media Player
+    - Instant Messenger
+    - Dev Tools:
+        - Java IDE
+        - DB Navigator
+
+files:
+  # Actions can be: Open Terminal, Browse, Execute, Edit, Cut, Copy, Paste
+  # Actions for specific paths. I.e.: play a folder (add all songs to music player)
+  favorites:
+    - Home
+    - Projects
+    - Documents
+    - Downloads
+    - Pictures
+    - Trash
+
+windows:
+  # Actions can be: move, resize, close, minimize, change workspace
+
+actions:
+  # lock, shutdown, log out, shell commands, resize current window
+
+status:
+  # In the center of the menus, display date, time, volume, network, user, calendar, notifications
