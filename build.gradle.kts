@@ -21,11 +21,12 @@ dependencies {
     val flatlafVersion = properties["flatlafVersion"]
     val tornadofxVersion = properties["tornadofxVersion"]
     val kotlinxHtmlVersion = properties["kotlinxHtmlVersion"]
+    val undertowVersion = properties["undertowVersion"]
 
-    "implementation"("com.hexagonkt:hexagon_core:$hexagonVersion")
     "implementation"("com.hexagonkt:http_server_jetty:$hexagonVersion")
     "implementation"("com.hexagonkt:http_client_ahc:$hexagonVersion")
     "implementation"("com.formdev:flatlaf:$flatlafVersion")
     "implementation"("no.tornado:tornadofx:$tornadofxVersion")
     "implementation"("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
+    "implementation"("io.undertow:undertow-servlet:$undertowVersion")
 }
