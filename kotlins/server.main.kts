@@ -9,7 +9,7 @@
  */
 
 @file:CompilerOptions("-jvm-target", "11")
-@file:DependsOn("com.hexagonkt:http_server_jetty:1.3.4")
+@file:DependsOn("com.hexagonkt:http_server_jetty:1.3.7")
 
 import com.hexagonkt.injection.*
 import com.hexagonkt.http.server.*
