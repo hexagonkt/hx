@@ -1,7 +1,9 @@
 
-# ${projectName} Service
+# _projectName_ Service
 
-This is an Hexagon service created from a template.
+_description_
+
+This is a Hexagon service created from a template.
 
 ## Usage
 
@@ -14,5 +16,6 @@ This is an Hexagon service created from a template.
 
 ## Docker
 
-Prior to generate the Docker image, you need to create the service distribution: `./gradlew installDist`
-After that you can start the whole service stack executing: `docker-compose up -d`
+Prior to generate the Docker image, you need to create the service distribution:
+`./gradlew installDist`. After that you can start the whole service stack executing:
+`docker-compose up -d`.

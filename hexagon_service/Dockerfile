@@ -1,21 +1,20 @@
 
-FROM openjdk:11
-LABEL description="${description}"
+FROM adoptopenjdk:11-jre-hotspot-bionic
+LABEL description="_description_"
 USER root
 
-# Machine setup
-ENV PROJECT ${projectName}
+# Project setup
+ENV PROJECT _projectName_
 ENV TZ UTC
 ENV PORT 9090
 
+EXPOSE $PORT
+
 # Machine setup
-EXPOSE \$PORT
-RUN ln -snf /usr/share/zoneinfo/\$TZ /etc/localtime && echo \$TZ > /etc/timezone
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Project install
 USER 1000
-COPY --chown=1000:1000 build/install/\$PROJECT /opt/\$PROJECT
-
-# Process execution
-WORKDIR /opt/\$PROJECT
-ENTRYPOINT /opt/\$PROJECT/bin/\$PROJECT
+ADD --chown=1000:1000 build/distributions/$PROJECT*.tar /opt
+WORKDIR /opt/$PROJECT*
+ENTRYPOINT /opt/$PROJECT*/bin/$PROJECT
