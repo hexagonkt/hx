@@ -1,7 +1,8 @@
 package com.hexagonkt.sidekick
 
 import com.hexagonkt.helpers.logger
-import com.hexagonkt.sidekick.codemirror.CodeMirrorView
+import javafx.application.Application
+import javafx.application.Application.launch
 import javafx.application.Platform.exit
 import javafx.application.Platform.runLater
 import javafx.event.Event
@@ -10,8 +11,6 @@ import javafx.scene.control.Alert.AlertType.CONFIRMATION
 import javafx.scene.control.ButtonType.OK
 import javafx.scene.image.Image
 import javafx.stage.Stage
-import tornadofx.App
-import tornadofx.launch
 import java.awt.MenuItem
 import java.awt.PopupMenu
 import java.awt.SystemTray
@@ -24,13 +23,9 @@ import kotlin.system.exitProcess
 const val appName = "ace demo"
 const val appImage = "classpath:img/tray.png"
 
-internal class SidekickApp : App() {
-
-//    override val primaryView = AceView::class
-    override val primaryView = CodeMirrorView::class
+internal class SidekickApp : Application() {
 
     override fun start(stage: Stage) {
-        super.start(stage)
 
         stage.icons.add(Image(appImage))
         stage.sizeToScene()
@@ -90,6 +85,6 @@ internal class SidekickApp : App() {
 
 fun main() {
     logger.info { "Starting $appName..." }
-    launch<SidekickApp>()
+    launch(SidekickApp::class.java)
     logger.info { "$appName started" }
 }

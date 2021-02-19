@@ -1,6 +1,5 @@
 
 # Application Templates
-
 Each subdirectory starting with `hexagon_` inside this module is a different template.
 
 You can package the templates locally with the command:
@@ -9,7 +8,6 @@ You can package the templates locally with the command:
     ./gradlew clean && ./gradlew processTemplate
 
 ## Starters Code
-
 For convenience, the code used to generate the templates is in `src/`. It is tested before being
 copied to the template.
 
@@ -20,7 +18,6 @@ copied to the template.
 - [ ] Modules and JLink are not working
 
 ## Distribution
-
 ```java
 module com.hexagonkt.sidekick {
     requires java.desktop;
@@ -47,3 +44,7 @@ jlink {
 ```
 
 * TODO Explain tests logging (with --info|warn... in the command line)
+
+# Intellij
+Gradle JDK should be 11+ for the project to compile properly:
+`Build, Execution, Deployment > Build Tools > Gradle > $PROJECT > Gradle JVM`

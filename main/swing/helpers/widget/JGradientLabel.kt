@@ -1,5 +1,6 @@
 package com.hexagonkt.sidekick.swing.helpers.widget
 
+import com.hexagonkt.sidekick.swing.helpers.TextUtilities
 import java.awt.*
 import javax.swing.JLabel
 import javax.swing.plaf.metal.MetalLabelUI

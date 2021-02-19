@@ -1,6 +1,6 @@
 
 plugins {
-    kotlin("jvm") version "1.4.21"
+    kotlin("jvm") version "1.4.30"
     id("org.openjfx.javafxplugin") version "0.0.9"
     id("application")
 }
@@ -19,14 +19,15 @@ extensions.configure<JavaApplication> {
 dependencies {
     val hexagonVersion = properties["hexagonVersion"]
     val flatlafVersion = properties["flatlafVersion"]
-    val tornadofxVersion = properties["tornadofxVersion"]
     val kotlinxHtmlVersion = properties["kotlinxHtmlVersion"]
     val undertowVersion = properties["undertowVersion"]
 
     "implementation"("com.hexagonkt:http_server_jetty:$hexagonVersion")
     "implementation"("com.hexagonkt:http_client_ahc:$hexagonVersion")
+    "implementation"("com.hexagonkt:serialization_xml:$hexagonVersion")
+    "implementation"("com.hexagonkt:serialization_yaml:$hexagonVersion")
+    "implementation"("com.hexagonkt:logging_slf4j:$hexagonVersion")
     "implementation"("com.formdev:flatlaf:$flatlafVersion")
-    "implementation"("no.tornado:tornadofx:$tornadofxVersion")
     "implementation"("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
     "implementation"("io.undertow:undertow-servlet:$undertowVersion")
 }
