@@ -1,6 +1,6 @@
 
 plugins {
-    kotlin("jvm") version "1.4.30"
+    kotlin("jvm") version "1.4.31"
     id("org.openjfx.javafxplugin") version "0.0.9"
     id("application")
 }
