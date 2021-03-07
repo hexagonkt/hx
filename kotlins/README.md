@@ -12,4 +12,10 @@ To run Kotlin scripts you have to follow these steps:
    ```
 4. Make the `kotlins` launcher executable with: `chmod +x /usr/local/bin/kotlins`
 
+After those steps, you can run Kotlin scripts with: `./script_name.main.kts args` (assuming that
+you marked the script as executable: `chmod +x script_name.main.kts`).
+
 [Kotlin]: https://kotlinlang.org
+
+### Set up IntelliJ
+To debug Kotlin scripts, an IntelliJ Java module must be created on the script directory.
