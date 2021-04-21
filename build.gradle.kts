@@ -1,6 +1,6 @@
 
 plugins {
-    kotlin("jvm") version "1.4.31"
+    kotlin("jvm") version "1.4.32"
     id("org.openjfx.javafxplugin") version "0.0.9"
     id("application")
 }
@@ -14,6 +14,10 @@ extensions.configure<org.openjfx.gradle.JavaFXOptions> {
 
 extensions.configure<JavaApplication> {
     mainClass.set("com.hexagonkt.sidekick.SidekickKt")
+}
+
+repositories {
+    maven("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
 }
 
 dependencies {
