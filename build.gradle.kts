@@ -1,6 +1,6 @@
 
 plugins {
-    kotlin("jvm") version "1.4.32"
+    kotlin("jvm") version "1.5.20"
     id("org.openjfx.javafxplugin") version "0.0.9"
     id("application")
 }
@@ -30,7 +30,7 @@ dependencies {
     "implementation"("com.hexagonkt:http_client_ahc:$hexagonVersion")
     "implementation"("com.hexagonkt:serialization_xml:$hexagonVersion")
     "implementation"("com.hexagonkt:serialization_yaml:$hexagonVersion")
-    "implementation"("com.hexagonkt:logging_logback:$hexagonVersion")
+//    "implementation"("com.hexagonkt:logging_logback:$hexagonVersion")
     "implementation"("com.formdev:flatlaf:$flatlafVersion")
     "implementation"("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
     "implementation"("io.undertow:undertow-servlet:$undertowVersion")

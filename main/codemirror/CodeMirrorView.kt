@@ -1,6 +1,6 @@
 package com.hexagonkt.sidekick.codemirror
 
-import com.hexagonkt.helpers.logger
+import com.hexagonkt.logging.logger
 import javafx.scene.layout.BorderPane
 import javafx.scene.web.WebView
 import kotlinx.html.*

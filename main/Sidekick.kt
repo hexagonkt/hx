@@ -1,6 +1,6 @@
 package com.hexagonkt.sidekick
 
-import com.hexagonkt.helpers.logger
+import com.hexagonkt.logging.logger
 import javafx.application.Application
 import javafx.application.Application.launch
 import javafx.application.Platform.exit

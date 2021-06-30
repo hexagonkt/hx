@@ -1,26 +1,34 @@
 package com.hexagonkt.sidekick.undertow
 
 import com.hexagonkt.logging.Logger
+import io.undertow.Handlers
 import java.lang.management.ManagementFactory
-import io.undertow.server.HttpServerExchange
 
 import io.undertow.Undertow
 import io.undertow.util.Headers
-import java.lang.Exception
 
 fun main() {
 
     val logger = Logger("com.hexagonkt")
 
-    val server = Undertow.builder()
+    val router = Handlers.routing()
+        .get("*") { // TODO Don't work
+            it.responseHeaders.put(Headers.CONTENT_TYPE, "text/plain")
+        }
+        .get("/hello") {
+//            it.responseHeaders.put(Headers.CONTENT_TYPE, "text/plain")
+            it.responseSender.send("Hello World")
+        }
+        .get("/bye") {
+//            it.responseHeaders.put(Headers.CONTENT_TYPE, "text/plain")
+            it.responseSender.send("Cruel World")
+        }
+
+    Undertow.builder()
         .addHttpListener(8080, "localhost")
-        .setHandler {
-            @Throws(Exception::class) fun handleRequest(exchange: HttpServerExchange) {
-                exchange.responseHeaders.put(Headers.CONTENT_TYPE, "text/plain")
-                exchange.responseSender.send("Hello World")
-            }
-        }.build()
-    server.start()
+        .setHandler(router)
+        .build()
+        .start()
 
     logger.info { ManagementFactory.getRuntimeMXBean().uptime }
 }
