@@ -1,7 +1,9 @@
-#!/usr/bin/env kotlins
+#!/usr/bin/env kotlin
 
 @file:CompilerOptions("-jvm-target", "1.8")
-@file:DependsOn("com.hexagonkt:http_client_ahc:1.3.9")
+@file:DependsOn("com.hexagonkt:http_client_ahc:1.3.20")
+@file:DependsOn("com.hexagonkt:logging_slf4j_jul:1.3.20")
+@file:DependsOn("com.hexagonkt:serialization_json:1.3.20")
 
 import com.hexagonkt.helpers.println
 import com.hexagonkt.http.client.Client

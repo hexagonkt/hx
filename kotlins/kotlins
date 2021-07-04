@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-[[ ! -f $(which kotlinc) ]] && echo 'Kotlin must be installed (kotlinc)' && exit 1
-[[ -z $KOTLIN_HOME ]] && echo 'KOTLIN_HOME must be defined' && exit 2
-[[ ! -d $KOTLIN_HOME/lib ]] && echo 'KOTLIN_HOME must point to Kotlin distribution (lib)' && exit 3
-[[ ! -d $KOTLIN_HOME/bin ]] && echo 'KOTLIN_HOME must point to Kotlin distribution (bin)' && exit 4
-
-kotlinc -cp $KOTLIN_HOME/lib/kotlin-main-kts.jar -script $@

@@ -1,4 +1,4 @@
-#!/usr/bin/env kotlins
+#!/usr/bin/env kotlin
 
 // Sources: gh repos, zip files, directories
 // Shortcuts (transform into URLs): ghuser/repo, mvnCoordinates, directory
